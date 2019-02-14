@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UbidotsService } from '../ubidots.service'
+import { UbidotsService } from '../ubidots.service';
+import { sms } from '../sms';
 
 @Component({
   selector: 'app-cleaner',
@@ -9,8 +10,11 @@ import { UbidotsService } from '../ubidots.service'
 export class CleanerComponent implements OnInit {
   volumes = [];
 
-  topArray = this.volumes[0];
-
+  lengthArray = this.volumes.length;
+  newItem : sms;
+  store: sms[] = [];
+  sms : any []
+  
 
   constructor(private ubidotsService: UbidotsService) { }
 
@@ -22,7 +26,9 @@ export class CleanerComponent implements OnInit {
     this.getQuality()
     this.getTemperature()
     this.getTrash()
-    console.log(this.topArray)
+    this.onSubmit()
+
+
   }
 
   getVolume() {
@@ -55,5 +61,11 @@ export class CleanerComponent implements OnInit {
     this.ubidotsService.getTrashValues().subscribe(response => {
       console.log(response);
     });
+  }
+
+  onSubmit(){
+    this.ubidotsService.getSms().subscribe(sms => {
+      this.sms = sms
+    })
   }
 }

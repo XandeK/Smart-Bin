@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UbidotsService } from '../ubidots.service';
 
+//Login done by Xande
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.authService.setSecureToken(this.loginForm.value.username);
         this.authService.setUserRole(this.results[0].role);
 
-        this.router.navigateByUrl('/Cleaner');
+        this.router.navigateByUrl('/Manager');
 
 
     });

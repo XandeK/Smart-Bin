@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UbidotsService } from '../ubidots.service';
 
+//UI and Component Done by Gerald
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

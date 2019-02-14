@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
+//auth service done by xande + Gerald for Login and Register functions
+
 export class AuthService {
 
   constructor(private http:HttpClient) { 

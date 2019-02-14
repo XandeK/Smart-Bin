@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { UbidotsService } from '../ubidots.service';
+import { sms } from '../sms';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.css']
 })
-export class ManagerComponent implements OnInit {
+//UI and component done by Khye Chun
 
-  constructor() { }
+export class ManagerComponent implements OnInit {
+  sms:any;
+
+  constructor( private ubidotsService: UbidotsService ) { }
 
   ngOnInit() {
+  }
+  onSubmit(){
+    this.ubidotsService.getSms().subscribe(sms => {
+      this.sms = sms
+    })
   }
 
 }
